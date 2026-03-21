@@ -1,3 +1,4 @@
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 const VehicleDetailModal = React.lazy(() => import('./components/VehicleDetailModal')); // Global Modal
 import Sidebar from './components/Sidebar';
 import BottomNav from './components/BottomNav';
@@ -5,8 +6,6 @@ import HeroSearch from './components/HeroSearch';
 import StockCarousel from './components/StockCarousel';
 import StockGrid from './components/StockGrid';
 import SearchBar from './components/SearchBar';
-
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { Vehicle, CategoryFilter, VehicleType, AppSettings } from './types';
 import VehicleCard from './components/VehicleCard'; // Mantenha este estático pois é usado na Home
 // HeroCard e ViewMoreCard não parecem ser usados no render principal ou são leves? 
