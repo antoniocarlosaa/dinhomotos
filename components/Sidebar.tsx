@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ filter, setFilter, onAdminClick, visi
                                 onClose(); // Close on selection (mobile)
                             }}
                             className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${filter === item.value
-                                ? 'bg-gold text-black shadow-lg shadow-gold/20'
+                                ? 'bg-gold text-white font-bold shadow-lg shadow-gold/20'
                                 : 'text-white/50 hover:bg-white/5 hover:text-white'
                                 }`}
                         >

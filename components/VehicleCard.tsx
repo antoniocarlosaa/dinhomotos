@@ -71,7 +71,7 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onInterest, onClick,
 
         {/* TOP BADGES */}
         <div className="absolute top-2 left-2 flex flex-wrap gap-1 z-20 pointer-events-none">
-          {vehicle.isFeatured && <span className="px-2 py-0.5 bg-gold text-black text-[8px] font-bold uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Destaque</span>}
+          {vehicle.isFeatured && <span className="px-2 py-0.5 bg-gold text-white font-bold text-[8px] font-bold uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Destaque</span>}
           {(vehicle.isPromoSemana || vehicle.isPromoMes) && <span className="px-2 py-0.5 bg-red-600/90 text-white text-[8px] font-bold uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Promo</span>}
           {vehicle.isZeroKm && <span className="px-2 py-0.5 bg-blue-500/90 text-white text-[8px] font-bold uppercase tracking-widest rounded shadow-lg backdrop-blur-md">0 KM</span>}
           {vehicle.isRepasse && <span className="px-2 py-0.5 bg-white/90 text-black text-[8px] font-bold uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Repasse</span>}

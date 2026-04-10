@@ -467,7 +467,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                 setShowMobileMenu(false); // Esconde menu ao clicar
               }}
               className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 group ${activeTab === tab.id
-                ? 'bg-gold text-black shadow-md shadow-gold/10'
+                ? 'bg-gold text-white font-bold shadow-md shadow-gold/10'
                 : 'text-white/40 hover:bg-white/5 hover:text-white'
                 }`}
             >
@@ -668,7 +668,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCardImageFit('cover')}
-                      className={`flex-1 py-3 px-4 rounded-xl border transition-all flex items-center justify-center gap-2 ${cardImageFit === 'cover' ? 'bg-gold text-black border-gold' : 'bg-surface/5 text-white border-white/10 hover:border-gold/50'}`}
+                      className={`flex-1 py-3 px-4 rounded-xl border transition-all flex items-center justify-center gap-2 ${cardImageFit === 'cover' ? 'bg-gold text-white font-bold border-gold' : 'bg-surface/5 text-white border-white/10 hover:border-gold/50'}`}
                     >
                       <span className="material-symbols-outlined">crop</span>
                       <div className="text-left">
@@ -678,7 +678,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                     </button>
                     <button
                       onClick={() => setCardImageFit('contain')}
-                      className={`flex-1 py-3 px-4 rounded-xl border transition-all flex items-center justify-center gap-2 ${cardImageFit === 'contain' ? 'bg-gold text-black border-gold' : 'bg-surface/5 text-white border-white/10 hover:border-gold/50'}`}
+                      className={`flex-1 py-3 px-4 rounded-xl border transition-all flex items-center justify-center gap-2 ${cardImageFit === 'contain' ? 'bg-gold text-white font-bold border-gold' : 'bg-surface/5 text-white border-white/10 hover:border-gold/50'}`}
                     >
                       <span className="material-symbols-outlined">aspect_ratio</span>
                       <div className="text-left">
@@ -762,7 +762,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                       alert("Erro ao salvar configurações.");
                     }
                   }}
-                  className="w-full md:w-auto px-12 py-3 bg-gold text-black font-heading text-[10px] tracking-[0.3em] rounded-full shadow-xl hover:brightness-110 active:scale-95 transition-all"
+                  className="w-full md:w-auto px-12 py-3 bg-gold text-white font-bold font-heading text-[10px] tracking-[0.3em] rounded-full shadow-xl hover:brightness-110 active:scale-95 transition-all"
                 >
                   SALVAR TUDO
                 </button>
@@ -785,11 +785,11 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                 </div>
 
                 <div className="flex p-1.5 bg-white/5 rounded-full border border-white/5">
-                  <button type="button" onClick={() => setNewType(VehicleType.MOTO)} className={`flex-1 py-4 rounded-full flex items-center justify-center gap-3 transition-all ${newType === VehicleType.MOTO ? 'bg-gold text-black shadow-lg' : 'text-white/40 hover:text-white'}`}>
+                  <button type="button" onClick={() => setNewType(VehicleType.MOTO)} className={`flex-1 py-4 rounded-full flex items-center justify-center gap-3 transition-all ${newType === VehicleType.MOTO ? 'bg-gold text-white font-bold shadow-lg' : 'text-white/40 hover:text-white'}`}>
                     <span className="material-symbols-outlined">motorcycle</span>
                     <span className="text-[11px] font-bold uppercase tracking-widest">MOTO</span>
                   </button>
-                  <button type="button" onClick={() => setNewType(VehicleType.CARRO)} className={`flex-1 py-4 rounded-full flex items-center justify-center gap-3 transition-all ${newType === VehicleType.CARRO ? 'bg-gold text-black shadow-lg' : 'text-white/40 hover:text-white'}`}>
+                  <button type="button" onClick={() => setNewType(VehicleType.CARRO)} className={`flex-1 py-4 rounded-full flex items-center justify-center gap-3 transition-all ${newType === VehicleType.CARRO ? 'bg-gold text-white font-bold shadow-lg' : 'text-white/40 hover:text-white'}`}>
                     <span className="material-symbols-outlined">directions_car</span>
                     <span className="text-[11px] font-bold uppercase tracking-widest">CARRO</span>
                   </button>
@@ -992,7 +992,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                       CANCELAR
                     </button>
                   )}
-                  <button type="submit" disabled={isUploading} className={`w-full md:w-auto px-12 py-4 bg-gold text-black text-[12px] font-heading tracking-[0.3em] rounded-full shadow-2xl transition-all ${isUploading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gold-light active:scale-[0.98]'}`}>
+                  <button type="submit" disabled={isUploading} className={`w-full md:w-auto px-12 py-4 bg-gold text-white font-bold text-[12px] font-heading tracking-[0.3em] rounded-full shadow-2xl transition-all ${isUploading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gold-light active:scale-[0.98]'}`}>
                     {isUploading ? 'PROCESSANDO...' : fullEditingId ? 'ATUALIZAR VEÍCULO' : 'PUBLICAR NO CATÁLOGO'}
                   </button>
                 </div>
@@ -1025,7 +1025,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                           <div className="flex flex-wrap items-center gap-2 mb-2">
                             <h4 className="text-white text-base font-heading tracking-wider truncate uppercase group-hover/info:text-gold transition-colors">{v.name}</h4>
                             {v.plate_last3 && <span className="text-[10px] bg-white/10 text-white/50 px-2 py-0.5 rounded font-mono border border-white/5">{v.plate_last3}</span>}
-                            {v.isFeatured && <span className="text-[10px] bg-gold text-black px-2 py-0.5 rounded font-bold uppercase">Destaque</span>}
+                            {v.isFeatured && <span className="text-[10px] bg-gold text-white font-bold px-2 py-0.5 rounded font-bold uppercase">Destaque</span>}
                             {v.isPromoSemana && <span className="text-[10px] bg-red-500 text-white px-2 py-0.5 rounded font-bold uppercase">Promoção</span>}
                           </div>
 
@@ -1058,7 +1058,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                     <div className="w-full md:w-auto flex flex-row items-center justify-end gap-2 pt-4 md:pt-0 pl-2 shrink-0 border-t md:border-t-0 md:border-l border-white/5 md:pl-6">
                       {editingId === v.id ? (
                         <>
-                          <button onClick={() => saveInlineEdit(v.id)} className="w-10 h-10 flex items-center justify-center bg-gold text-black rounded-full shadow-lg hover:scale-110 transition-all"><span className="material-symbols-outlined text-xl">check</span></button>
+                          <button onClick={() => saveInlineEdit(v.id)} className="w-10 h-10 flex items-center justify-center bg-gold text-white font-bold rounded-full shadow-lg hover:scale-110 transition-all"><span className="material-symbols-outlined text-xl">check</span></button>
                           <button onClick={() => setEditingId(null)} className="w-10 h-10 flex items-center justify-center bg-white/10 text-white/50 rounded-full hover:bg-white/20 transition-all"><span className="material-symbols-outlined text-xl">close</span></button>
                         </>
                       ) : (
@@ -1069,7 +1069,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
                           <button onClick={() => {
                             onUpdateVehicle(v.id, { isFeatured: !v.isFeatured });
                             if (user?.email) logger.logAction(user.email, 'EDITAR', v.name, v.isFeatured ? 'Removeu Destaque' : 'Destacou');
-                          }} className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all hover:scale-110 ${v.isFeatured ? 'bg-gold text-black shadow-lg shadow-gold/20' : 'bg-white/5 text-white/20 hover:text-gold hover:bg-gold/10'}`} title={v.isFeatured ? "Remover Destaque" : "Destacar Veículo"}>
+                          }} className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all hover:scale-110 ${v.isFeatured ? 'bg-gold text-white font-bold shadow-lg shadow-gold/20' : 'bg-white/5 text-white/20 hover:text-gold hover:bg-gold/10'}`} title={v.isFeatured ? "Remover Destaque" : "Destacar Veículo"}>
                             <span className="material-symbols-outlined text-[20px] fill">star</span>
                           </button>
                           <button onClick={() => {

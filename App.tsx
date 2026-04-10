@@ -256,19 +256,19 @@ const App: React.FC = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setFilter('MOTOS')}
-                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'MOTOS' ? 'bg-gold text-black border-gold' : 'bg-black/50 text-white border-white/10 hover:border-gold/50 hover:text-gold backdrop-blur-sm'}`}
+                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'MOTOS' ? 'bg-gold text-white font-bold border-gold' : 'bg-black/50 text-white border-white/10 hover:border-gold/50 hover:text-gold backdrop-blur-sm'}`}
                 >
                   Motos
                 </button>
                 <button
                   onClick={() => setFilter('CARROS')}
-                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'CARROS' ? 'bg-gold text-black border-gold' : 'bg-black/50 text-white border-white/10 hover:border-gold/50 hover:text-gold backdrop-blur-sm'}`}
+                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'CARROS' ? 'bg-gold text-white font-bold border-gold' : 'bg-black/50 text-white border-white/10 hover:border-gold/50 hover:text-gold backdrop-blur-sm'}`}
                 >
                   Carros
                 </button>
                 <button
                   onClick={() => setFilter('PROMOÇÕES')}
-                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'PROMOÇÕES' ? 'bg-gold text-black border-gold' : 'bg-black/50 text-gold border-gold/20 hover:border-gold/50 backdrop-blur-sm'}`}
+                  className={`px-5 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${filter === 'PROMOÇÕES' ? 'bg-gold text-white font-bold border-gold' : 'bg-black/50 text-gold border-gold/20 hover:border-gold/50 backdrop-blur-sm'}`}
                 >
                   Promoções
                 </button>
@@ -436,7 +436,7 @@ const App: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 md:bottom-6 right-6 z-[60] w-12 h-12 bg-gold text-black rounded-full shadow-2xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center border border-white/20"
+          className="fixed bottom-24 md:bottom-6 right-6 z-[60] w-12 h-12 bg-gold text-white font-bold rounded-full shadow-2xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center border border-white/20"
           aria-label="Voltar ao topo"
         >
           <span className="material-symbols-outlined">arrow_upward</span>

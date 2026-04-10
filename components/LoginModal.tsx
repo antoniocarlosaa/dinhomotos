@@ -85,7 +85,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onSuccess }) => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-5 bg-gold text-black font-heading text-[11px] tracking-[0.3em] rounded-full shadow-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full py-5 bg-gold text-white font-bold font-heading text-[11px] tracking-[0.3em] rounded-full shadow-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {loading ? (
                             <div className="flex items-center justify-center gap-3">
