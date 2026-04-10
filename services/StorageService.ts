@@ -6,6 +6,26 @@ export class StorageService {
     // Upload de arquivo (imagem ou vídeo)
     async uploadFile(file: File, folder: 'images' | 'videos'): Promise<{ url: string | null; error: Error | null }> {
         try {
+            // 🌟 IMGBB INTEGRATION FOR IMAGES 🌟
+            if (folder === 'images' && import.meta.env.VITE_IMGBB_API_KEY) {
+                const formData = new FormData();
+                formData.append('image', file);
+
+                const response = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    return { url: data.data.url, error: null };
+                } else {
+                    console.error("ImgBB Upload Erro:", data);
+                    throw new Error(data.error?.message || "Falha ao enviar imagem para ImgBB");
+                }
+            }
+
+            // 🌟 SUPABASE FALLBACK (For Videos or if ImgBB is missing) 🌟
             const fileExt = file.name.split('.').pop();
             const fileName = `${folder}/${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
 
@@ -45,10 +65,16 @@ export class StorageService {
     // Deletar arquivo
     async deleteFile(fileUrl: string): Promise<{ error: Error | null }> {
         try {
-            // Extrair o path do arquivo da URL
+            // 🌟 IMGBB DELETE BYPASS 🌟
+            // Imagens no ImgBB ficarão orfãs lá sem afetar sua conta local
+            if (fileUrl.includes('imgbb.com') || fileUrl.includes('ibb.co')) {
+                return { error: null };
+            }
+
+            // Extrair o path do arquivo da URL (Supabase default)
             const urlParts = fileUrl.split(`/${this.bucketName}/`);
             if (urlParts.length < 2) {
-                throw new Error('URL inválida');
+                return { error: null }; // Ignora silenciosamente URLs inválidas
             }
 
             const filePath = urlParts[1];
