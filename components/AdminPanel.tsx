@@ -222,6 +222,30 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
 
   // Função auxiliar para upload seguro
   const uploadFileToStorage = async (file: File): Promise<string> => {
+    // 🌟 IMGBB INTEGRATION FOR IMAGES 🌟
+    if (file.type.startsWith('image/') && import.meta.env.VITE_IMGBB_API_KEY) {
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const response = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+        if (data.success) {
+          return data.data.url;
+        } else {
+          console.error("ImgBB Upload Erro:", data);
+          throw new Error(data.error?.message || "Falha ao enviar imagem para ImgBB");
+        }
+      } catch (err) {
+        console.warn("Falha no ImgBB, tentando enviar para o Supabase (fallback):", err);
+        // O código continua para baixo para tentar no Supabase
+      }
+    }
+
+    // 🌟 SUPABASE FALLBACK / VIDEOS 🌟
     const fileExt = file.name.split('.').pop();
     const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
     const filePath = `${fileName}`;
